@@ -1,0 +1,11 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+    <form action="/problem" method="post">
+        <input type="text" placeholder="title" name="problem[title]"> <br> <br>
+        <textarea placeholder="description" name="problem[description]"></textarea> <br> <br>
+        <input type="text" placeholder="category" name="problem[category]"> <br> <br>
+        <input type="text" placeholder="difficulty" name="problem[difficulty]"> <br> <br> 
+        <input type="text" placeholder="postedBy" name="problem[postedBy]"> <br> <br>
+        <button>Submit</button>
+    </form>
+</body>

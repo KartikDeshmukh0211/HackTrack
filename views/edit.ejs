@@ -1,0 +1,11 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+    <form action="/problem/<%= problem._id %>?_method=PUT" method="post">
+        <input type="text" placeholder="title" name="problem[title]" value="<%= problem.title %>"> <br> <br>
+        <textarea placeholder="description" name="problem[description]"><%= problem.description %></textarea> <br> <br>
+        <input type="text" placeholder="category" name="problem[category]" value="<%= problem.category %>">> <br> <br>
+        <input type="text" placeholder="difficulty" name="problem[difficulty]" value="<%= problem.difficulty %>">> <br> <br> 
+        <input type="text" placeholder="postedBy" name="problem[postedBy]" value="<%= problem.postedBy %>">> <br> <br>
+        <button>Save Changes</button>
+    </form>
+</body>
