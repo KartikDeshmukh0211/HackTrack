@@ -1,7 +1,7 @@
 // This is going to be the server file
 
 if (process.env.NODE_ENV != "production") {
-  require("dotenv").config();
+  require("dotenv").config(); // dotenv is used to access the env variable
 }
 
 const express = require("express");
@@ -39,11 +39,28 @@ app.get("/", (req, res) => {
   res.send("app is working");
 });
 
+app.get("/solution", (req, res) => {
+  res.render("solution.ejs");
+});
+
 // INDEX ROUTE
-app.get("/problem", async (req, res) => {
+app.get("/home", async (req, res) => {
   let allProblems = await Problem.find();
   // console.log(allProblems);
   res.render("index.ejs", { allProblems });
+});
+
+app.get("/problems", async (req, res) => {
+  let allProblems = await Problem.find();
+  // console.log(allProblems);
+  res.render("./problems/problem.ejs", { allProblems });
+});
+
+app.get("/problems/:id", async (req, res) => {
+  let { id } = req.params;
+  let problem = await Problem.findById(id);
+  // console.log(problem);
+  res.render("./problems/problem_detail.ejs", { problem });
 });
 
 // NEW ROUTE

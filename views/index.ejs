@@ -1,28 +1,9 @@
 <% layout("./layouts/boilerplate") %>
 
 <body>
-  <%- include("./includes/sections/hero.ejs") %>
-  <%- include("./includes/sections/features.ejs") %>
-  <%- include("./includes/sections/problem.ejs") %>
-  <%- include("./includes/sections/solution.ejs") %>
-  <%- include("./includes/sections/cta.ejs") %>
-  <!-- <form action="/problem/new" method="get">
-    <button>Add new</button>
-  </form>
-
-  <% for(let problem of allProblems){ %>
-  <div class="problem-container">
-    <h2><%= problem.title %></h2>
-    <p><%= problem.description %></p>
-    <p><%= problem.category %></p>
-    <p><%= problem.difficulty %></p>
-    <p><%= problem.postedBy %></p>
-
-    <form action="/problem/<%= problem._id %>?_method=DELETE" method="post">
-      <button>Delete</button>
-    </form>
-    <a href="/problem/<%= problem._id %>/edit">Edit</a>
-  </div>
-
-  <% } %> -->
+  <%- include("./home/hero.ejs") %>
+  <%- include("./home/features.ejs") %>
+  <%- include("./home/problem.ejs",) %>
+  <%- include("./home/solution.ejs") %>
+  <%- include("./home/cta.ejs") %>  
 </body>
