@@ -17,10 +17,7 @@
 
   <!-- Problem Banner -->
   <div class="problem-banner">
-    <img
-      src="<%= problem.image %>"
-      alt="Futuristic cityscape"
-    />
+    <img src="<%= problem.image %>" alt="Futuristic cityscape" />
     <div class="banner-overlay">
       <h2>How can we secure the future of work?</h2>
     </div>
@@ -29,9 +26,7 @@
   <!-- Problem Details -->
   <section class="problem-section">
     <h3>Details</h3>
-    <p>
-      <%= problem.description %>
-    </p>
+    <p><%= problem.description %></p>
   </section>
 
   <!-- Requirements -->
@@ -63,6 +58,7 @@
 
   <!-- Submit Button -->
   <div class="submit-container">
+    <a href="/problems/<%= problem._id %>/edit" class="submit-button">Edit</a>
     <button class="submit-button">Submit a solution</button>
   </div>
 
@@ -121,4 +117,9 @@
       </div>
     </div>
   </section>
+  <div class="delete-container">
+    <form action="/problems/<%= problem._id%>?_method=DELETE" method="post">
+      <button class="delete-button">Delete</button>
+    </form>
+  </div>
 </main>

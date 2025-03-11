@@ -123,6 +123,11 @@
 /* Submit Button */
 .submit-container {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.delete-container {
+  display: flex;
   justify-content: flex-end;
   margin-bottom: 50px;
 }
@@ -139,8 +144,24 @@
   transition: var(--transition);
 }
 
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
 .submit-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.delete-button:hover {
+  background-color: rgb(200, 16, 16);
   transform: translateY(-2px);
 }
 

@@ -73,7 +73,7 @@ app.get("/problems/:id", async (req, res) => {
 });
 
 // EDIT ROUTE
-app.get("/problem/:id/edit", async (req, res) => {
+app.get("/problems/:id/edit", async (req, res) => {
   let { id } = req.params;
   let problem = await Problem.findById(id);
   res.render("edit.ejs", { problem });
@@ -85,7 +85,7 @@ app.put("/problem/:id", async (req, res) => {
   let newProblem = req.body.problem;
   let problem = await Problem.findByIdAndUpdate(id, newProblem, { new: true });
   // console.log(problem);
-  res.redirect("/problem");
+  res.redirect("/problems");
 });
 
 // CREATE ROUTE
@@ -98,10 +98,10 @@ app.post("/problems", async (req, res) => {
 });
 
 // DELETE ROUTE
-app.delete("/problem/:id", async (req, res) => {
+app.delete("/problems/:id", async (req, res) => {
   let { id } = req.params;
   await Problem.findByIdAndDelete(id);
-  res.redirect("/problem");
+  res.redirect("/problems");
 });
 
 // app.get("/testing", async (req, res) => {

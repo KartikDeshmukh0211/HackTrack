@@ -1,11 +1,84 @@
 <% layout("./layouts/boilerplate") %>
 <body>
+  <div class="post-problem-container">
+    <h1 class="page-title">Edit the Problem</h1>
     <form action="/problem/<%= problem._id %>?_method=PUT" method="post">
-        <input type="text" placeholder="title" name="problem[title]" value="<%= problem.title %>"> <br> <br>
-        <textarea placeholder="description" name="problem[description]"><%= problem.description %></textarea> <br> <br>
-        <input type="text" placeholder="category" name="problem[category]" value="<%= problem.category %>">> <br> <br>
-        <input type="text" placeholder="difficulty" name="problem[difficulty]" value="<%= problem.difficulty %>">> <br> <br> 
-        <input type="text" placeholder="postedBy" name="problem[postedBy]" value="<%= problem.postedBy %>">> <br> <br>
-        <button>Save Changes</button>
+      <div class="form-group">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          id="title"
+          value="<%= problem.title %>"
+          placeholder="Enter a descriptive title"
+          name="problem[title]"
+          class="form-input"
+        />
+        <div class="error-message">
+          Title must be between 10 and 100 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          name="problem[description]"
+          class="form-textarea"
+          required
+          minlength="50"
+          maxlength="1000"
+          placeholder="Describe the problem in detail..."
+        >
+<%= problem.description %></textarea
+        >
+        <div class="error-message">
+          Description must be between 50 and 1000 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="category" class="form-label">Category</label>
+        <select id="category" name="problem[category]" class="form-select">
+          <option value="<%= problem.category %>"><%= problem.category %></option>
+          <option value="healthcare">Healthcare</option>
+          <option value="finance">Finance</option>
+          <option value="education">Education</option>
+          <option value="logistics">Logistics</option>
+          <option value="retail">Retail</option>
+          <option value="food">Food & Beverage</option>
+          <option value="media">Media</option>
+          <option value="energy">Energy</option>
+          <option value="travel">Travel</option>
+          <option value="public">Public Sector</option>
+          <option value="sports">Sports</option>
+          <option value="gaming">Gaming</option>
+        </select>
+        <!-- <div class="error-message">Please select a category</div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="posted_by" class="form-label">Posted By</label>
+        <input
+          type="text"
+          id="posted_by"
+          value="<%= problem.posted_by %>"
+          name="problem[posted_by]"
+          class="form-input"
+        />
+      </div>
+
+      <div class="button-group">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.history.back()"
+        >
+          Cancel
+        </button>
+        <form method="post" action="/problem/<%= problem._id %>?_method=PUT">
+          <button class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
     </form>
+  </div>
 </body>
