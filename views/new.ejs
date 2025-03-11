@@ -1,11 +1,124 @@
 <% layout("./layouts/boilerplate") %>
 <body>
-    <form action="/problem" method="post">
-        <input type="text" placeholder="title" name="problem[title]"> <br> <br>
-        <textarea placeholder="description" name="problem[description]"></textarea> <br> <br>
-        <input type="text" placeholder="category" name="problem[category]"> <br> <br>
-        <input type="text" placeholder="difficulty" name="problem[difficulty]"> <br> <br> 
-        <input type="text" placeholder="postedBy" name="problem[postedBy]"> <br> <br>
-        <button>Submit</button>
+  <div class="post-problem-container">
+    <h1 class="page-title">Post a Problem</h1>
+    <form action="/problems" method="post">
+      <div class="form-group">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          id="title"
+          placeholder="Enter a descriptive title"
+          name="problem[title]"
+          class="form-input"
+          required
+        />
+        <div class="error-message">
+          Title must be between 10 and 100 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          id="description"
+          name="problem[description]"
+          class="form-textarea"
+          required
+          minlength="50"
+          maxlength="1000"
+          placeholder="Describe the problem in detail..."
+        ></textarea>
+        <div class="error-message">
+          Description must be between 50 and 1000 characters
+        </div>
+      </div>
+
+      <!-- <input type="text" placeholder="category" name="problem[category]" /> -->
+
+      <div class="form-group">
+        <label for="category" class="form-label">Category</label>
+        <select
+          id="category"
+          name="problem[category]"
+          class="form-select"
+          required
+        >
+          <option value="">Select a category</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="finance">Finance</option>
+          <option value="education">Education</option>
+          <option value="logistics">Logistics</option>
+          <option value="retail">Retail</option>
+          <option value="food">Food & Beverage</option>
+          <option value="media">Media</option>
+          <option value="energy">Energy</option>
+          <option value="travel">Travel</option>
+          <option value="public">Public Sector</option>
+          <option value="sports">Sports</option>
+          <option value="gaming">Gaming</option>
+        </select>
+        <!-- <div class="error-message">Please select a category</div> -->
+      </div>
+
+      <!-- <input type="text" placeholder="difficulty" name="problem[difficulty]" /> -->
+      <!-- <input type="text" placeholder="postedBy" name="problem[postedBy]" /> -->
+
+      <div class="button-group">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.history.back()"
+        >
+          Cancel
+        </button>
+        <button class="btn btn-primary">Submit Problem</button>
+      </div>
     </form>
+  </div>
 </body>
+<!-- <body>
+  <div class="post-problem-container">
+    <h1 class="page-title">Post a Problem</h1>
+    <form id="problemForm" class="problem-form" onsubmit="handleSubmit(event)">
+      
+      <div class="form-group">
+        <label for="image" class="file-label">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 0h4v4m-4-4v4h4"
+            />
+          </svg>
+          Upload Image
+        </label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          class="file-input"
+          accept="image/*"
+        />
+        <img id="preview" class="preview-image" alt="Preview" />
+        <div class="error-message">Please upload an image</div>
+      </div>
+
+      <div class="button-group">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.history.back()"
+        >
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">Submit Problem</button>
+      </div>
+    </form>
+  </div>
+</body> -->

@@ -34,6 +34,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 app.engine("ejs", ejsMate);
+// app.use((req, res, next) => {
+//   console.log('Time:', Date.now())
+//   next()
+// })
 
 app.get("/", (req, res) => {
   res.send("app is working");
@@ -56,16 +60,16 @@ app.get("/problems", async (req, res) => {
   res.render("./problems/problem.ejs", { allProblems });
 });
 
+// NEW ROUTE
+app.get("/problems/new", (req, res) => {
+  res.render("new.ejs");
+});
+
 app.get("/problems/:id", async (req, res) => {
   let { id } = req.params;
   let problem = await Problem.findById(id);
   // console.log(problem);
   res.render("./problems/problem_detail.ejs", { problem });
-});
-
-// NEW ROUTE
-app.get("/problem/new", (req, res) => {
-  res.render("new.ejs");
 });
 
 // EDIT ROUTE
@@ -85,11 +89,12 @@ app.put("/problem/:id", async (req, res) => {
 });
 
 // CREATE ROUTE
-app.post("/problem", async (req, res) => {
+app.post("/problems", async (req, res) => {
   let data = req.body.problem;
   // console.log(data);
   await Problem.insertOne(data);
-  res.redirect("/problem");
+  res.redirect("/problems");
+  // res.send("done");
 });
 
 // DELETE ROUTE
