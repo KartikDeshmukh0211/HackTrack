@@ -12,6 +12,7 @@
           placeholder="Enter a descriptive title"
           name="problem[title]"
           class="form-input"
+          required
         />
         <div class="error-message">
           Title must be between 10 and 100 characters
@@ -39,7 +40,9 @@
       <div class="form-group">
         <label for="category" class="form-label">Category</label>
         <select id="category" name="problem[category]" class="form-select">
-          <option value="<%= problem.category %>"><%= problem.category %></option>
+          <option value="<%= problem.category %>">
+            <%= problem.category %>
+          </option>
           <option value="healthcare">Healthcare</option>
           <option value="finance">Finance</option>
           <option value="education">Education</option>
@@ -64,6 +67,7 @@
           value="<%= problem.posted_by %>"
           name="problem[posted_by]"
           class="form-input"
+          readonly
         />
       </div>
 
