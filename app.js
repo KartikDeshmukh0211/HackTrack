@@ -13,7 +13,8 @@ const ejsMate = require("ejs-mate");
 
 const Problem = require("./models/problem.js");
 const wrapAsync = require("./utils/wrapAsync.js");
-const { problemSchema } = require("./schema.js");
+
+const problems = require("./routes/problem.js");
 
 let port = 3000;
 
@@ -41,18 +42,6 @@ app.engine("ejs", ejsMate);
 //   next()
 // })
 
-const validataProblem = (req, res, next) => {
-  let result = problemSchema.validate(req.body);
-  // console.log(result)
-  if (result.error) {
-    const err = new Error(result.error.message);
-    err.statusCode = 404; // Set status code
-    next(err);
-  } else {
-    next();
-  }
-};
-
 app.get("/", (req, res) => {
   res.send("app is working");
 });
@@ -66,82 +55,11 @@ app.get(
   "/home",
   wrapAsync(async (req, res) => {
     let allProblems = await Problem.find();
-    // console.log(allProblems);
     res.render("index.ejs", { allProblems });
   })
 );
 
-app.get(
-  "/problems",
-  wrapAsync(async (req, res) => {
-    let allProblems = await Problem.find();
-    // console.log(allProblems);
-    res.render("./problems/problem.ejs", { allProblems });
-  })
-);
-
-// NEW ROUTE
-app.get("/problems/new", (req, res) => {
-  res.render("new.ejs");
-});
-
-app.get(
-  "/problems/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let problem = await Problem.findById(id);
-    // console.log(problem);
-    res.render("./problems/problem_detail.ejs", { problem });
-  })
-);
-
-// EDIT ROUTE
-app.get(
-  "/problems/:id/edit",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let problem = await Problem.findById(id);
-    res.render("edit.ejs", { problem });
-  })
-);
-
-//UPDATE ROUTE
-app.put(
-  "/problem/:id",
-  validataProblem,
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let newProblem = req.body.problem;
-    let problem = await Problem.findByIdAndUpdate(id, newProblem, {
-      new: true,
-    });
-    // console.log(problem);
-    res.redirect("/problems");
-  })
-);
-
-// CREATE ROUTE
-app.post(
-  "/problems",
-  validataProblem,
-  wrapAsync(async (req, res, next) => {
-    let data = req.body.problem;
-    // console.log(data);
-    await Problem.insertOne(data);
-    res.redirect("/problems");
-    // res.send("done");
-  })
-);
-
-// DELETE ROUTE
-app.delete(
-  "/problems/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    await Problem.findByIdAndDelete(id);
-    res.redirect("/problems");
-  })
-);
+app.use("/problems", problems);
 
 // app.get("/testing", async (req, res) => {
 //   const dummyData = Problem({
@@ -165,6 +83,7 @@ app.all("*", (req, res, next) => {
   next(err);
 });
 
+// ERROR HANDLING MIDDLEWARE
 app.use((err, req, res, next) => {
   let { statusCode = 500, message, stack } = err;
   res.status(statusCode).render("error.ejs", { message, statusCode, stack });
