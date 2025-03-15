@@ -18,10 +18,12 @@
   </head>
   <body>
     <%- include("../includes/navbar.ejs") %>
-  
-    <div class="container">
-      <%- include("../includes/flash.ejs") %>
-      <%- body %></div>
+
+    <!-- Flash Messages -->
+    <%- include("../includes/flash.ejs") %>
+    <div class="container"><%- body %></div>
     <%- include("../includes/footer.ejs") %>
+
+    <script src="/js/flash.js"></script>
   </body>
 </html>
