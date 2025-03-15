@@ -37,6 +37,10 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let problem = await Problem.findById(id);
+    if(!problem){
+      req.flash("failure", "Problem doesn't exist")
+      res.redirect("/problems")
+    }
     res.render("./problems/problem_detail.ejs", { problem });
   })
 );
@@ -47,6 +51,10 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let problem = await Problem.findById(id);
+    if(!problem){
+      req.flash("failure", "Problem doesn't exist")
+      res.redirect("/problems")
+    }
     res.render("edit.ejs", { problem });
   })
 );
@@ -58,9 +66,10 @@ router.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let newProblem = req.body.problem;
-    let problem = await Problem.findByIdAndUpdate(id, newProblem, {
+    await Problem.findByIdAndUpdate(id, newProblem, {
       new: true,
     });
+    req.flash("success", "problem updated");
     res.redirect("/problems");
   })
 );
@@ -72,6 +81,7 @@ router.post(
   wrapAsync(async (req, res, next) => {
     let data = req.body.problem;
     await Problem.insertOne(data);
+    req.flash("success", "new problem added");
     res.redirect("/problems");
   })
 );
@@ -82,6 +92,7 @@ router.delete(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Problem.findByIdAndDelete(id);
+    req.flash("success", "problem deleted");
     res.redirect("/problems");
   })
 );
