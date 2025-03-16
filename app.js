@@ -73,6 +73,13 @@ app.get("/solution", (req, res) => {
   res.render("solution.ejs");
 });
 
+app.get("/login", (req, res) => {
+  res.render("users/login.ejs");
+});
+app.get("/signup", (req, res) => {
+  res.render("users/signup.ejs");
+});
+
 // INDEX ROUTE
 app.get(
   "/home",
