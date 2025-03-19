@@ -43,24 +43,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const signupForm = document.getElementById("signup-form");
-  if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
-      if (!validateSignupForm()) {
-        e.preventDefault();
-      } else {
-        // For demo purposes, prevent form submission and show success message
-        e.preventDefault();
-        window.addFlashMessage(
-          "success",
-          "Account created successfully! Redirecting..."
-        );
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
-      }
-    });
-  }
+  // const signupForm = document.getElementById("signup-form");
+  // if (signupForm) {
+  //   signupForm.addEventListener("submit", (e) => {
+  //     if (!validateSignupForm()) {
+  //       e.preventDefault();
+  //     } else {
+  //       // For demo purposes, prevent form submission and show success message
+  //       e.preventDefault();
+  //       window.addFlashMessage(
+  //         "success",
+  //         "Account created successfully! Redirecting..."
+  //       );
+  //       setTimeout(() => {
+  //         window.location.href = "/";
+  //       }, 2000);
+  //     }
+  //   });
+  // }
 
   // Social login buttons
   const socialButtons = document.querySelectorAll(".social-button");

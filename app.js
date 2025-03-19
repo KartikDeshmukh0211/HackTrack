@@ -19,6 +19,10 @@ const problems = require("./routes/problem.js");
 const session = require("express-session");
 const flash = require("connect-flash");
 
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
+
 let port = 3000;
 
 main()
@@ -59,6 +63,13 @@ app.engine("ejs", ejsMate);
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.failure = req.flash("failure");
@@ -79,6 +90,21 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("users/signup.ejs");
 });
+app.post("/signup", async (req, res) => {
+  try {
+    let username = req.body.firstName + req.body.lastName;
+    let { email, password } = req.body;
+
+    const newUser = new User({ username, email });
+    const registeredUser = await User.register(newUser, password);
+    console.log(registeredUser);
+    req.flash("success", "User signuped successfully");
+    res.redirect("/home");
+  } catch (err) {
+    req.flash("success", err.message);
+    res.redirect("/signup");
+  }
+});
 
 // INDEX ROUTE
 app.get(
@@ -90,6 +116,16 @@ app.get(
 );
 
 app.use("/problems", problems);
+
+app.get("/demoUser", async (req, res) => {
+  let fakeUser = new User({
+    email: "unknown",
+    username: "Its me",
+  });
+
+  let newuser = await User.register(fakeUser, "Hello");
+  res.send(newuser);
+});
 
 // app.get("/testing", async (req, res) => {
 //   const dummyData = Problem({
