@@ -27,21 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Form validation
-  const loginForm = document.getElementById("login-form");
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      if (!validateLoginForm()) {
-        e.preventDefault();
-      } else {
-        // For demo purposes, prevent form submission and show success message
-        e.preventDefault();
-        window.addFlashMessage("success", "Login successful! Redirecting...");
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
-      }
-    });
-  }
+  // const loginForm = document.getElementById("login-form");
+  // if (loginForm) {
+  //   loginForm.addEventListener("submit", (e) => {
+  //     if (!validateLoginForm()) {
+  //       e.preventDefault();
+  //     } else {
+  //       // For demo purposes, prevent form submission and show success message
+  //       e.preventDefault();
+  //       window.addFlashMessage("success", "Login successful! Redirecting...");
+  //       setTimeout(() => {
+  //         window.location.href = "/";
+  //       }, 2000);
+  //     }
+  //   });
+  // }
 
   // const signupForm = document.getElementById("signup-form");
   // if (signupForm) {

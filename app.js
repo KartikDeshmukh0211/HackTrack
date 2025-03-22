@@ -2,6 +2,7 @@
 
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config(); // dotenv is used to access the env variable
+  // console.log(process.env.DUMMY_PASSWORD)
 }
 
 const express = require("express");
@@ -14,7 +15,8 @@ const ejsMate = require("ejs-mate");
 const Problem = require("./models/problem.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 
-const problems = require("./routes/problem.js");
+const problemRouter = require("./routes/problem.js");
+const userRouter = require("./routes/user.js");
 
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -67,12 +69,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser()); // passport will add user details into the session body in req
+passport.deserializeUser(User.deserializeUser()); // passport will delete user details into the session body in req
 
+// MIDDLEWARE FOR STORING IN RESPONSE LOCALS.
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
-  res.locals.failure = req.flash("failure");
+  res.locals.error = req.flash("error"); // for failure things
+  res.locals.currUser = req.user;
   next();
 });
 
@@ -84,28 +88,6 @@ app.get("/solution", (req, res) => {
   res.render("solution.ejs");
 });
 
-app.get("/login", (req, res) => {
-  res.render("users/login.ejs");
-});
-app.get("/signup", (req, res) => {
-  res.render("users/signup.ejs");
-});
-app.post("/signup", async (req, res) => {
-  try {
-    let username = req.body.firstName + req.body.lastName;
-    let { email, password } = req.body;
-
-    const newUser = new User({ username, email });
-    const registeredUser = await User.register(newUser, password);
-    console.log(registeredUser);
-    req.flash("success", "User signuped successfully");
-    res.redirect("/home");
-  } catch (err) {
-    req.flash("success", err.message);
-    res.redirect("/signup");
-  }
-});
-
 // INDEX ROUTE
 app.get(
   "/home",
@@ -115,7 +97,8 @@ app.get(
   })
 );
 
-app.use("/problems", problems);
+app.use("/", userRouter);
+app.use("/problems", problemRouter);
 
 app.get("/demoUser", async (req, res) => {
   let fakeUser = new User({

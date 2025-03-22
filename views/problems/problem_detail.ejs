@@ -58,8 +58,10 @@
 
   <!-- Submit Button -->
   <div class="submit-container">
+    <% if(currUser && currUser._id.equals(problem.owner._id)){ %>
     <a href="/problems/<%= problem._id %>/edit" class="submit-button">Edit</a>
-    <button class="submit-button">Submit a solution</button>
+    <% } %>
+    <button class="submit-button sbm">Submit a solution</button>
   </div>
 
   <!-- Solutions -->
@@ -117,9 +119,11 @@
       </div>
     </div>
   </section>
+  <% if(currUser && currUser._id.equals(problem.owner._id)){ %>
   <div class="delete-container">
     <form action="/problems/<%= problem._id%>?_method=DELETE" method="post">
       <button class="delete-button">Delete</button>
     </form>
   </div>
+  <% } %>
 </main>

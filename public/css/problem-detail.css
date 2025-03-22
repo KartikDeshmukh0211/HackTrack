@@ -164,6 +164,9 @@
   cursor: pointer;
   transition: var(--transition);
 }
+.sbm {
+  margin-left: auto;
+}
 
 .delete-button {
   background-color: red;

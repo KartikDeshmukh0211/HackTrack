@@ -6,6 +6,12 @@ const problemSchema = new mongoose.Schema({
   image: String,
   posted_by: String,
   category: String,
+  owner : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "User"
+    // type: mongoose.Schema.Types.ObjectId,
+    // ref: "User",
+  }
 });
 
 const Problem = new mongoose.model("Problem", problemSchema);

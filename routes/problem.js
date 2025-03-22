@@ -5,6 +5,8 @@ const Problem = require("../models/problem.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const { problemSchema } = require("../schema.js");
 
+const { isLoggedIn, isOwner } = require("../middleware.js");
+
 const validataProblem = (req, res, next) => {
   let result = problemSchema.validate(req.body);
   // console.log(result)
@@ -27,7 +29,7 @@ router.get(
 );
 
 // NEW ROUTE
-router.get("/new", (req, res) => {
+router.get("/new",isLoggedIn, (req, res) => {
   res.render("new.ejs");
 });
 
@@ -37,9 +39,9 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let problem = await Problem.findById(id);
-    if(!problem){
-      req.flash("failure", "Problem doesn't exist")
-      res.redirect("/problems")
+    if (!problem) {
+      req.flash("failure", "Problem doesn't exist");
+      res.redirect("/problems");
     }
     res.render("./problems/problem_detail.ejs", { problem });
   })
@@ -48,12 +50,14 @@ router.get(
 // EDIT ROUTE
 router.get(
   "/:id/edit",
+  isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let problem = await Problem.findById(id);
-    if(!problem){
-      req.flash("failure", "Problem doesn't exist")
-      res.redirect("/problems")
+    if (!problem) {
+      req.flash("failure", "Problem doesn't exist");
+      res.redirect("/problems");
     }
     res.render("edit.ejs", { problem });
   })
@@ -62,6 +66,8 @@ router.get(
 //UPDATE ROUTE
 router.put(
   "/:id",
+  isLoggedIn,
+  isOwner,
   validataProblem,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -77,9 +83,11 @@ router.put(
 // CREATE ROUTE
 router.post(
   "/",
+  isLoggedIn,
   validataProblem,
   wrapAsync(async (req, res, next) => {
     let data = req.body.problem;
+    data.owner = req.user;
     await Problem.insertOne(data);
     req.flash("success", "new problem added");
     res.redirect("/problems");
@@ -89,6 +97,8 @@ router.post(
 // DELETE ROUTE
 router.delete(
   "/:id",
+  isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Problem.findByIdAndDelete(id);
