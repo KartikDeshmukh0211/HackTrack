@@ -100,15 +100,15 @@ app.get(
 app.use("/", userRouter);
 app.use("/problems", problemRouter);
 
-app.get("/demoUser", async (req, res) => {
-  let fakeUser = new User({
-    email: "unknown",
-    username: "Its me",
-  });
+// app.get("/demoUser", async (req, res) => {
+//   let fakeUser = new User({
+//     email: "unknown",
+//     username: "Its me",
+//   });
 
-  let newuser = await User.register(fakeUser, "Hello");
-  res.send(newuser);
-});
+//   let newuser = await User.register(fakeUser, "Hello");
+//   res.send(newuser);
+// });
 
 // app.get("/testing", async (req, res) => {
 //   const dummyData = Problem({

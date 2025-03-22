@@ -1,4 +1,5 @@
 const Problem = require("./models/problem.js");
+const { problemSchema } = require("./schema.js");
 
 module.exports.isLoggedIn = (req, res, next) => {
   // console.log(req.user);
@@ -28,4 +29,16 @@ module.exports.isOwner = async (req, res, next) => {
     return res.redirect(`/problems/${id}`);
   }
   next();
+};
+
+module.exports.validataProblem = (req, res, next) => {
+  let result = problemSchema.validate(req.body);
+
+  if (result.error) {
+    const err = new Error(result.error.message);
+    err.statusCode = 404; // Set status code
+    next(err);
+  } else {
+    next();
+  }
 };
