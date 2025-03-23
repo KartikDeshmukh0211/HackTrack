@@ -7,7 +7,11 @@ const solutionSchema = new mongoose.Schema({
   benefits: String,
   potential_impacts: String,
   category: String,
-  image : String
+  image : String,
+  owner : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "User"
+  }
 });
 
 const Solution = new mongoose.model("Solution", solutionSchema);

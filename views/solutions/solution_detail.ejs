@@ -5,9 +5,7 @@
     <div class="solution-header">
       <div class="solution-title-section">
         <span class="solution-category"><%= solution.category %></span>
-        <h1 class="solution-title">
-          <%= solution.solution_title %>
-        </h1>
+        <h1 class="solution-title"><%= solution.solution_title %></h1>
         <div class="solution-meta">
           <div class="solution-author">
             <img
@@ -73,16 +71,14 @@
       <div class="solution-main">
         <img
           src="<%= solution.image %>"
-          alt=<%= solution.solution_title %>
+          alt="<%= solution.solution_breakdown %>"
           class="solution-image"
         />
 
         <div class="solution-body">
           <div class="solution-section">
             <h2 class="section-title">Solution Breakdown</h2>
-            <p class="solution-text">
-              <%= solution.solution_breakdown %>
-            </p>
+            <p class="solution-text"><%= solution.solution_breakdown %></p>
             <!-- <p class="solution-text">
               This solution is to help users retain more of what they learn in
               the language learning app. It consists of an AI-powered feature
@@ -94,10 +90,8 @@
 
           <div class="solution-section">
             <h2 class="section-title">Approach</h2>
-            <p class="solution-text">
-              <%= solution.approach %>
-            </p>
-           
+            <p class="solution-text"><%= solution.approach %></p>
+
             <!-- <p class="solution-text">
               We will use AI to create personalized flashcards for each user.
               These flashcards will be generated based on the user's learning
@@ -114,10 +108,8 @@
 
           <div class="solution-section">
             <h2 class="section-title">Benefits</h2>
-            <p class="solution-text">
-              <%= solution.benefits %>
-            </p>
-            
+            <p class="solution-text"><%= solution.benefits %></p>
+
             <!-- <p class="solution-text">
               The personalized flashcards will make learning more efficient and
               enjoyable for users. They will be able to remember more of what
@@ -135,10 +127,8 @@
 
           <div class="solution-section">
             <h2 class="section-title">Potential Impact</h2>
-            <p class="solution-text">
-              <%= solution.potential_impacts %>
-            </p>
-            
+            <p class="solution-text"><%= solution.potential_impacts %></p>
+
             <!-- <p class="solution-text">
               By helping users retain more of what they learn, this solution can
               significantly improve the effectiveness of the language learning
@@ -275,6 +265,21 @@
             multiple award-winning language learning applications. She
             specializes in AI-driven personalization for education.
           </p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Make Changes</h3>
+          <div class="solution-author" style="margin-bottom: 1rem">
+            <a href="/solutions/<%= solution._id %>/edit"
+              ><button class="btn btn-primary">Edit</button></a
+            >
+            <form
+              action="/solutions/<%= solution._id %>?_method=DELETE"
+              method="post"
+            >
+              <button class="btn btn-primary delete">Delete</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

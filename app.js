@@ -13,6 +13,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 
 const Problem = require("./models/problem.js");
+const Solution = require("./models/solution.js");
 const wrapAsync = require("./utils/wrapAsync.js");
 
 const problemRouter = require("./routes/problem.js");
@@ -90,8 +91,9 @@ app.get(
   "/",
   wrapAsync(async (req, res) => {
     let allProblems = await Problem.find();
+    let allSolutions = await Solution.find();
     // console.log(allProblems);
-    res.render("index.ejs", { allProblems });
+    res.render("index.ejs", { allProblems, allSolutions });
   })
 );
 

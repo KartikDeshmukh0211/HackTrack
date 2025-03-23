@@ -28,11 +28,15 @@ const initialiseDB = async () => {
   });
   // console.log(process.env.DUMMY_PASSWORD);
   const registeredUser = await User.register(newUser, "123456789");
-  const updatedData = sampleProblems.map((ele) => {
+  const updatedDataProblem = sampleProblems.map((ele) => {
     return { ...ele, owner: registeredUser._id };
   });
-  await Problem.insertMany(updatedData);
-  await Solution.insertMany(sampleSolutions);
+
+  const updatedDataSolution = await sampleSolutions.map((ele) => {
+    return { ...ele, owner: registeredUser._id };
+  });
+  await Problem.insertMany(updatedDataProblem);
+  await Solution.insertMany(updatedDataSolution);
 };
 
 initialiseDB();
