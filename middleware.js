@@ -12,7 +12,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
-// this middleware will store the redirectUrl if it is present.
+// this middleware will store the redirectUrl if it is presentt.
 module.exports.saveRedirectUrl = (req, res, next) => {
   if (req.session.redirectUrl) {
     res.locals.redirectUrl = req.session.redirectUrl;
