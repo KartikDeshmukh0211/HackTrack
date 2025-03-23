@@ -183,6 +183,25 @@ h1 {
   color: var(--primary);
 }
 
+.heading-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.heading-box .search-container {
+  padding: 14px;
+  width: 100%;
+  max-width: 500px;
+  
+}
+
+.heading-box .newly-added {
+  margin: 0;
+}
+
 /* Newly Added Section */
 .newly-added {
   /* font-size: 1.25rem; */

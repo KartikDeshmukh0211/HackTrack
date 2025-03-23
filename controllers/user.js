@@ -16,7 +16,7 @@ module.exports.signupUser = async (req, res) => {
         return next(err);
       }
       req.flash("success", "User signuped successfully");
-      res.redirect("/home");
+      res.redirect("/");
     });
   } catch (err) {
     // console.log(err);
@@ -33,7 +33,7 @@ module.exports.renderLoginForm = (req, res) => {
 module.exports.loginUser = (req, res) => {
   // console.log(req.user);
   req.flash("success", "You LoggedIn successfully");
-  let url = res.locals.redirectUrl || "/home";
+  let url = res.locals.redirectUrl || "/";
   res.redirect(url);
 };
 
@@ -43,6 +43,6 @@ module.exports.logoutUser = (req, res) => {
       return next(err);
     }
     req.flash("success", "You are logged out!");
-    res.redirect("/home");
+    res.redirect("/");
   });
 };

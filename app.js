@@ -17,6 +17,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 
 const problemRouter = require("./routes/problem.js");
 const userRouter = require("./routes/user.js");
+const solutionRouter = require("./routes/solution.js");
 
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -80,25 +81,23 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("app is working");
-});
-
 app.get("/solution", (req, res) => {
-  res.render("solution.ejs");
+  res.render("solutions/solution_detail.ejs");
 });
 
 // INDEX ROUTE
 app.get(
-  "/home",
+  "/",
   wrapAsync(async (req, res) => {
     let allProblems = await Problem.find();
+    // console.log(allProblems);
     res.render("index.ejs", { allProblems });
   })
 );
 
 app.use("/", userRouter);
 app.use("/problems", problemRouter);
+app.use("/solutions", solutionRouter);
 
 // app.get("/demoUser", async (req, res) => {
 //   let fakeUser = new User({

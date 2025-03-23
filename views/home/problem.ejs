@@ -2,35 +2,34 @@
 <section class="problems">
   <div class="section-header">
     <h2>Explore Problems</h2>
-    <a href="/problems" class="view-all">View all <i class="fas fa-arrow-right"></i></a>
+    <a href="/problems" class="view-all"
+      >View all <i class="fas fa-arrow-right"></i
+    ></a>
   </div>
 
   <div class="cards-container">
-    <div class="problem-card">
-      <img
-        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-        alt="Restaurant food waste"
-      />
-      <h3>Reduce food waste in restaurants</h3>
-      <p class="card-meta">$500 prize</p>
-    </div>
+    <a href="/problems/<%= allProblems[0]._id %>">
+      <div class="problem-card">
+        <img src="<%= allProblems[0].image %>" alt="Restaurant food waste" />
+        <h3><%= allProblems[0].title %></h3>
+        <p class="card-meta"><%= allProblems[0].category %></p>
+      </div>
+    </a>
 
-    <div class="problem-card">
-      <img
-        src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-        alt="Solar panels"
-      />
-      <h3>Improve the efficiency of solar panels</h3>
-      <p class="card-meta">$500 prize</p>
-    </div>
+    <a href="/problems/<%= allProblems[1]._id %>">
+      <div class="problem-card">
+        <img src="<%= allProblems[1].image %>" alt="Solar panels" />
+        <h3><%= allProblems[1].title %></h3>
+        <p class="card-meta"><%= allProblems[1].category %></p>
+      </div>
+    </a>
 
-    <div class="problem-card">
-      <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
-        alt="Focus at work"
-      />
-      <h3>Help people stay focused at work</h3>
-      <p class="card-meta">$350 prize</p>
-    </div>
+    <a href="/problems/<%= allProblems[1]._id %>">
+      <div class="problem-card">
+        <img src="<%= allProblems[2].image %>" alt="Focus at work" />
+        <h3><%= allProblems[2].title %></h3>
+        <p class="card-meta"><%= allProblems[2].category %></p>
+      </div>
+    </a>
   </div>
 </section>

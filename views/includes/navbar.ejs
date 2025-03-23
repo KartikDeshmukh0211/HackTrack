@@ -2,23 +2,22 @@
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-logo">
-      <i class="fas fa-cube"></i>
-      <span>HackTrack</span>
+      <a href="/"><i class="fas fa-cube"></i> <span>HackTrack</span></a>
     </div>
 
     <div class="navbar-links">
-      <a href="#" class="nav-link">Browse Problems</a>
+      <a href="/problems" class="nav-link">Browse Problems</a>
       <a href="#" class="nav-link">Explore Solutions</a>
-      <a href="#" class="nav-link">Post a Problem</a>
+      <a href="/problems/new" class="nav-link">Post a Problem</a>
       <a href="#" class="nav-link">Post a Solution</a>
-      <!-- <a href="#" class="nav-link">My Posts</a> -->
+      <a href="#" class="nav-link">My Posts</a>
     </div>
 
     <div class="navbar-search">
-      <div class="search-container">
+      <!-- <div class="search-container">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Search" />
-      </div>
+      </div> -->
       <% if(!currUser){ %>
       <button class="sign-in-btn"><a href="/signup">Sign In</a></button>
       <button class="sign-in-btn"><a href="/login">Login</a></button>

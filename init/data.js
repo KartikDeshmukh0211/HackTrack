@@ -89,6 +89,112 @@ const sampleProblems = [
     posted_by: "Global Water Alliance (User)",
     category: "Sustainability",
   },
+  {
+    title: "AI-Powered Legal Document Analyzer",
+    description:
+      "Legal professionals, businesses, and individuals often struggle with reading and interpreting complex legal documents, contracts, and agreements. These documents are typically filled with legal jargon, making it difficult to understand crucial clauses, potential risks, and obligations. This project aims to build an AI-driven legal document analyzer that scans, categorizes, and summarizes key points in contracts. It should highlight risky clauses, identify missing important sections, and provide simple explanations for non-legal experts. This tool will not only save time but also help avoid costly legal mistakes by ensuring proper contract understanding.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D12AQHthl6Xx3FXmg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1722859426449?e=2147483647&v=beta&t=4GZyTRuLDVZUXuVfb_YM6_bGZtBku3mK9EnpUrV4IUE",
+    posted_by: "Ministry of Law & Justice (Government)",
+    category: "Legal Tech",
+  },
+  {
+    title: "IoT-Based Smart Irrigation System",
+    description:
+      "Agriculture is one of the largest consumers of freshwater, yet a significant amount of water is wasted due to inefficient irrigation techniques. Traditional irrigation systems either overwater or underwater crops, leading to reduced yields and soil degradation. This project involves developing an IoT-enabled smart irrigation system that uses real-time data from soil moisture sensors, weather forecasts, and crop requirements to automate irrigation schedules. The system should optimize water usage, notify farmers about potential drought risks, and provide insights into soil health, ensuring sustainable farming practices.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6vI1HAUq7KIK0nhe9Y334IZQtPWj6ssjhPQ&s",
+    posted_by: "Agricultural Research Council (Government)",
+    category: "Agriculture",
+  },
+  {
+    title: "AI-Driven Personalized Career Counseling",
+    description:
+      "With rapidly changing job markets, students and professionals often find it challenging to choose the right career path. Many struggle due to a lack of guidance, industry insights, or knowledge of required skills. This project proposes an AI-powered career counseling platform that analyzes a user's interests, skills, educational background, and industry trends to provide personalized career suggestions. The platform should also recommend relevant online courses, internships, and job opportunities, helping individuals make informed career decisions and bridging the gap between education and employment.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D12AQG5XlWiK2Dt7A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721173733276?e=2147483647&v=beta&t=aA-HvQlB4UijTHjoPYCsLld7h_Fxz20upH4a5M9ZiVc",
+    posted_by: "Future Jobs Initiative (User)",
+    category: "Education",
+  },
+  {
+    title: "Smart Energy Consumption Tracker",
+    description:
+      "Many households and businesses waste electricity due to a lack of real-time energy usage monitoring. High electricity bills and excessive power consumption contribute to financial and environmental concerns. This project aims to create a smart energy tracking system that provides real-time insights into power consumption patterns. It should identify energy-intensive appliances, suggest ways to reduce power wastage, and provide alerts for unusual consumption spikes. Additionally, the system can offer recommendations for switching to energy-efficient alternatives and integrating renewable energy sources.",
+    image: "https://www.energyly.com/assets/images/video/analytics.png",
+    posted_by: "Renewable Energy Council (Government)",
+    category: "Sustainability",
+  },
+  {
+    title: "AI-Based Resume Screening System",
+    description:
+      "Recruiters and HR teams face significant challenges in screening thousands of resumes for job openings. Manually filtering candidates is time-consuming and often leads to biased selections. This project involves developing an AI-powered resume screening system that can analyze job descriptions and match the most relevant resumes based on qualifications, skills, and experience. The system should rank candidates, highlight discrepancies in resumes, and provide fair evaluations to ensure an efficient and unbiased hiring process.",
+    image:
+      "https://cdn.prod.website-files.com/64d03d94c73469cb85a2d02f/64d03d94c73469cb85a2d3ca_shutterstock_1279483576.png",
+    posted_by: "Tech Recruiters Inc. (User)",
+    category: "Human Resources",
+  },
+  {
+    title: "AI-Driven Personalized Financial Advisor",
+    description:
+      "Many individuals lack financial literacy and struggle with making informed decisions about savings, investments, and budgeting. This project proposes an AI-driven financial advisory tool that analyzes an individual's income, expenses, financial goals, and market trends to offer personalized financial guidance. The system should suggest investment options, track spending habits, alert users about potential financial risks, and help them achieve financial stability.",
+    image:
+      "https://mitsloan.mit.edu/sites/default/files/styles/article_header/public/2024-04/ai-financial-advisor_0.jpg?h=d11f454f&itok=bielWAjm",
+    posted_by: "Financial Literacy Foundation (User)",
+    category: "Finance",
+  },
+  {
+    title: "Crowdsourced Road Condition Reporting System",
+    description:
+      "Road maintenance authorities often struggle to identify and repair potholes and damaged roads on time, leading to accidents, increased vehicle maintenance costs, and traffic congestion. This project aims to develop a crowdsourced platform where users can report poor road conditions by uploading geotagged images of potholes, cracks, or missing street signs. Authorities can use this data to prioritize repairs, allocate budgets efficiently, and enhance road safety.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu2nIPQAGfmBmHwWEg3CjicApyQExPkg4SlA&s",
+    posted_by: "Ministry of Transport (Government)",
+    category: "Smart Cities",
+  },
+  {
+    title: "AI-Powered Virtual Interior Designer",
+    description:
+      "Many homeowners and businesses struggle with space optimization and interior design choices. This project involves creating an AI-powered virtual interior designer that can analyze room dimensions, furniture placement, and lighting conditions to provide design suggestions. Users can upload photos of their spaces, and the system will generate 3D visualizations with recommended layouts, color palettes, and furniture arrangements, making interior designing accessible and cost-effective.",
+    image:
+      "https://planner5d.com/assets/images/landing-seo/room-planner-tool/intro_pic_mobile_2@2x.webp",
+    posted_by: "Smart Home Solutions (User)",
+    category: "Home Improvement",
+  },
+  {
+    title: "Real-Time Air Quality Monitoring App",
+    description:
+      "Air pollution is a growing global concern, yet many people lack access to real-time air quality data. This project proposes the development of a mobile application that integrates with IoT-based air quality sensors to provide live updates on pollution levels, hazardous gas concentrations, and health risks. The app should offer location-based pollution forecasts, suggest protective measures, and notify users when air quality drops to dangerous levels.",
+    image: "https://www.aqi.in/media/pages/app/hero-mockup-light.webp",
+    posted_by: "Environmental Protection Agency (Government)",
+    category: "Environment",
+  },
+  {
+    title: "AI-Powered Customer Support Chatbot",
+    description:
+      "Companies receive thousands of customer inquiries daily, which can overwhelm customer support teams. This project involves developing an AI-powered chatbot that understands user queries, provides instant solutions, and escalates unresolved issues to human agents. The chatbot should integrate with company databases, analyze customer sentiment, and provide multilingual support to enhance user experience.",
+    image:
+      "https://www.chatbot.com/home__scanning-ai.978c40d39a7ec222ec08dab825570a4dda2c68ef4840b50c11c30228fc19af44.png",
+    posted_by: "E-Commerce Association (User)",
+    category: "Business",
+  },
+  {
+    title: "AI-Powered Personalized Book Recommendation System",
+    description:
+      "Finding books that match a reader's interests can be challenging. This project proposes developing an AI-driven book recommendation engine that analyzes user preferences, past reading history, and popular trends to suggest books. The system should also provide personalized reading challenges, community discussions, and genre-based recommendations.",
+    image:
+      "https://www.solulab.com/wp-content/uploads/2024/10/AI-Powered-Recommendation-System.jpg",
+    posted_by: "Book Lovers Community (User)",
+    category: "Entertainment",
+  },
+  {
+    title: "AI-Based Personalized Sleep Coach",
+    description:
+      "Millions of people suffer from sleep disorders caused by stress, poor habits, or medical conditions. This project involves creating an AI-powered sleep monitoring and coaching system that tracks sleep patterns, analyzes disturbances, and suggests lifestyle changes to improve sleep quality. The system should integrate with smart devices and provide tailored bedtime routines for better sleep hygiene.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrGBzzqXvBepaQ0dxIJTZfcz34FCuxgXWOQ&s",
+    posted_by: "Sleep Research Institute (User)",
+    category: "Health & Wellness",
+  },
 ];
 
 module.exports = sampleProblems;

@@ -12,7 +12,8 @@
   <!-- Problem Header -->
   <div class="problem-header">
     <h1><%= problem.title %></h1>
-    <div class="problem-sponsor">By <%= problem.posted_by %></div>
+    <!-- <div class="problem-sponsor">By <%= problem.posted_by %></div> -->
+    <div class="problem-sponsor"><b>Posted By: </b> <%= problem.owner.username %></div>
   </div>
 
   <!-- Problem Banner -->

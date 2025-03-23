@@ -11,7 +11,7 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.showProblem = async (req, res) => {
   let { id } = req.params;
-  let problem = await Problem.findById(id);
+  let problem = await Problem.findById(id).populate("owner");
   if (!problem) {
     req.flash("failure", "Problem doesn't exist");
     res.redirect("/problems");

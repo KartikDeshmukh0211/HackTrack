@@ -1,0 +1,261 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+    <main class="solution-container">
+        <div class="page-header">
+            <h1 class="page-title">Explore Solutions</h1>
+            <a href="#" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Post a Solution
+            </a>
+        </div>
+
+        <div class="filter-bar">
+            <div>
+                <span class="filter-label">Category:</span>
+                <select class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="finance">Finance</option>
+                    <option value="education">Education</option>
+                    <option value="logistics">Logistics</option>
+                    <option value="retail">Retail</option>
+                    <option value="food">Food & Beverage</option>
+                    <option value="media">Media</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div>
+                <span class="filter-label">Sort by:</span>
+                <select class="filter-select">
+                    <option value="newest">Newest</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="trending">Trending</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search solutions...">
+                <button class="search-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="solutions-grid">
+            <!-- Solution Card 1 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1406&q=80" alt="AI food waste prediction">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Retail</span>
+                    <h2 class="card-title">AI-powered food waste prediction</h2>
+                    <p class="card-description">A machine learning solution that helps restaurants predict food demand and reduce waste by analyzing historical data and trends.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="John Doe" class="author-avatar">
+                            <span>John Doe</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>24</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Solution Card 2 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1592833159057-6fbe97aefd4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Solar panel cleaning robot">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Energy</span>
+                    <h2 class="card-title">Solar panel cleaning robot</h2>
+                    <p class="card-description">An autonomous robot that efficiently cleans solar panels to maintain optimal energy production without human intervention.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Jane Smith" class="author-avatar">
+                            <span>Jane Smith</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>42</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Solution Card 3 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Concentration-boosting Slack bot">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Media</span>
+                    <h2 class="card-title">Concentration-boosting Slack bot</h2>
+                    <p class="card-description">A Slack integration that helps teams stay focused by managing notifications and suggesting optimal work periods based on productivity patterns.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Bob Johnson" class="author-avatar">
+                            <span>Bob Johnson</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>36</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Solution Card 4 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Language learning app">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Education</span>
+                    <h2 class="card-title">Increase Retention for a Language Learning App</h2>
+                    <p class="card-description">An AI-powered feature that creates personalized flashcards based on user learning patterns to improve memory retention and learning efficiency.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Sarah Lee" class="author-avatar">
+                            <span>Sarah Lee</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>52</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Solution Card 5 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant food waste">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Food & Beverage</span>
+                    <h2 class="card-title">Community-based food sharing platform</h2>
+                    <p class="card-description">A mobile app that connects restaurants with excess food to local shelters and food banks to reduce waste and help those in need.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Michael Chen" class="author-avatar">
+                            <span>Michael Chen</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>31</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Solution Card 6 -->
+            <a href="solution-detail.html" class="solution-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Solar panels">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Energy</span>
+                    <h2 class="card-title">Smart grid optimization algorithm</h2>
+                    <p class="card-description">An AI-based system that balances energy distribution in smart grids to maximize efficiency and reduce waste during peak usage times.</p>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="/placeholder.svg?height=24&width=24" alt="Emma Wilson" class="author-avatar">
+                            <span>  alt="Emma Wilson" class="author-avatar">
+                            <span>Emma Wilson</span>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                </svg>
+                                <span>27</span>
+                            </div>
+                            <div class="stat">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- <div class="pagination">
+            <button class="page-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="page-item active">1</button>
+            <button class="page-item">2</button>
+            <button class="page-item">3</button>
+            <button class="page-item">4</button>
+            <button class="page-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div> -->
+    </main>
+</body>
