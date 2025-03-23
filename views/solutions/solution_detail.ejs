@@ -4,9 +4,9 @@
   <main class="solution-detail-container">
     <div class="solution-header">
       <div class="solution-title-section">
-        <span class="solution-category">Education</span>
+        <span class="solution-category"><%= solution.category %></span>
         <h1 class="solution-title">
-          Increase Retention for a Language Learning App
+          <%= solution.solution_title %>
         </h1>
         <div class="solution-meta">
           <div class="solution-author">
@@ -72,8 +72,8 @@
     <div class="solution-content">
       <div class="solution-main">
         <img
-          src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-          alt="Language learning app"
+          src="<%= solution.image %>"
+          alt=<%= solution.solution_title %>
           class="solution-image"
         />
 
@@ -81,17 +81,24 @@
           <div class="solution-section">
             <h2 class="section-title">Solution Breakdown</h2>
             <p class="solution-text">
+              <%= solution.solution_breakdown %>
+            </p>
+            <!-- <p class="solution-text">
               This solution is to help users retain more of what they learn in
               the language learning app. It consists of an AI-powered feature
               that allows users to practice and remember words and phrases in a
               more effective way. The feature will be available as part of the
               app's premium subscription.
-            </p>
+            </p> -->
           </div>
 
           <div class="solution-section">
             <h2 class="section-title">Approach</h2>
             <p class="solution-text">
+              <%= solution.approach %>
+            </p>
+           
+            <!-- <p class="solution-text">
               We will use AI to create personalized flashcards for each user.
               These flashcards will be generated based on the user's learning
               history and preferences. The AI will also optimize the timing and
@@ -102,12 +109,16 @@
               in forgetting and retention, then use spaced repetition algorithms
               enhanced by machine learning to present words and phrases at
               optimal intervals for long-term memory formation.
-            </p>
+            </p> -->
           </div>
 
           <div class="solution-section">
             <h2 class="section-title">Benefits</h2>
             <p class="solution-text">
+              <%= solution.benefits %>
+            </p>
+            
+            <!-- <p class="solution-text">
               The personalized flashcards will make learning more efficient and
               enjoyable for users. They will be able to remember more of what
               they learn and progress faster in their language learning journey.
@@ -119,12 +130,16 @@
               <li>Reduced time needed for review sessions</li>
               <li>Personalized learning experience</li>
               <li>Increased user engagement and satisfaction</li>
-            </ul>
+            </ul> -->
           </div>
 
           <div class="solution-section">
             <h2 class="section-title">Potential Impact</h2>
             <p class="solution-text">
+              <%= solution.potential_impacts %>
+            </p>
+            
+            <!-- <p class="solution-text">
               By helping users retain more of what they learn, this solution can
               significantly improve the effectiveness of the language learning
               app. It can lead to higher user retention, longer subscription
@@ -138,7 +153,7 @@
               their learning journey within 2-3 months. By addressing this core
               issue, we expect to see subscription retention rates improve by
               15-25%.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>

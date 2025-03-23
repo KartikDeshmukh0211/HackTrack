@@ -1,54 +1,95 @@
 <% layout("./layouts/boilerplate") %>
 <body>
-    <main class="solution-container">
-        <div class="page-header">
-            <h1 class="page-title">Explore Solutions</h1>
-            <a href="#" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-                Post a Solution
-            </a>
-        </div>
+  <main class="solution-container">
+    <div class="page-header">
+      <h1 class="page-title">Explore Solutions</h1>
+      <a href="#" class="btn btn-primary">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Post a Solution
+      </a>
+    </div>
 
-        <div class="filter-bar">
-            <div>
-                <span class="filter-label">Category:</span>
-                <select class="filter-select">
-                    <option value="">All Categories</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="finance">Finance</option>
-                    <option value="education">Education</option>
-                    <option value="logistics">Logistics</option>
-                    <option value="retail">Retail</option>
-                    <option value="food">Food & Beverage</option>
-                    <option value="media">Media</option>
-                    <option value="energy">Energy</option>
-                </select>
-            </div>
-            <div>
-                <span class="filter-label">Sort by:</span>
-                <select class="filter-select">
-                    <option value="newest">Newest</option>
-                    <option value="popular">Most Popular</option>
-                    <option value="trending">Trending</option>
-                </select>
-            </div>
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search solutions...">
-                <button class="search-button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
+    <div class="filter-bar">
+      <div>
+        <span class="filter-label">Category:</span>
+        <select class="filter-select">
+          <option value="">All Categories</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="finance">Finance</option>
+          <option value="education">Education</option>
+          <option value="logistics">Logistics</option>
+          <option value="retail">Retail</option>
+          <option value="food">Food & Beverage</option>
+          <option value="media">Media</option>
+          <option value="energy">Energy</option>
+        </select>
+      </div>
+      <div>
+        <span class="filter-label">Sort by:</span>
+        <select class="filter-select">
+          <option value="newest">Newest</option>
+          <option value="popular">Most Popular</option>
+          <option value="trending">Trending</option>
+        </select>
+      </div>
+      <div class="search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search solutions..."
+        />
+        <button class="search-button">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
 
-        <div class="solutions-grid">
-            <!-- Solution Card 1 -->
-            <a href="solution-detail.html" class="solution-card">
+    <div class="solutions-grid">
+      <!-- Solution Cards -->
+      <% for(let solution of allSolutions){ %>
+      <a href="/solutions/<%= solution._id %>" class="solution-card">
+        <div class="card-image">
+          <img
+            src="<%= solution.image %>"
+            alt=<%= solution.solution_title %>
+          />
+        </div>
+        <div class="card-content">
+          <h2 class="card-title"><%= solution.solution_title %></h2>
+          <p class="card-description">
+            <%= solution.solution_breakdown %>
+          </p>
+          <!-- <p class="card-description">
+            A machine learning solution that helps restaurants predict food
+            demand and reduce waste by analyzing historical data and trends.
+          </p> -->
+          <span class="card-category"><%= solution.category %></span>
+        </div>
+      </a>
+      <% } %>
+
+      <!-- Solution Card 1 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1406&q=80" alt="AI food waste prediction">
                 </div>
@@ -77,10 +118,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> -->
 
-            <!-- Solution Card 2 -->
-            <a href="solution-detail.html" class="solution-card">
+      <!-- Solution Card 2 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1592833159057-6fbe97aefd4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Solar panel cleaning robot">
                 </div>
@@ -109,10 +150,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> -->
 
-            <!-- Solution Card 3 -->
-            <a href="solution-detail.html" class="solution-card">
+      <!-- Solution Card 3 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Concentration-boosting Slack bot">
                 </div>
@@ -141,10 +182,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> -->
 
-            <!-- Solution Card 4 -->
-            <a href="solution-detail.html" class="solution-card">
+      <!-- Solution Card 4 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Language learning app">
                 </div>
@@ -173,10 +214,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> -->
 
-            <!-- Solution Card 5 -->
-            <a href="solution-detail.html" class="solution-card">
+      <!-- Solution Card 5 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant food waste">
                 </div>
@@ -205,10 +246,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> -->
 
-            <!-- Solution Card 6 -->
-            <a href="solution-detail.html" class="solution-card">
+      <!-- Solution Card 6 -->
+      <!-- <a href="solution-detail.html" class="solution-card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Solar panels">
                 </div>
@@ -238,10 +279,10 @@
                         </div>
                     </div>
                 </div>
-            </a>
-        </div>
+            </a> -->
+    </div>
 
-        <!-- <div class="pagination">
+    <!-- <div class="pagination">
             <button class="page-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="15 18 9 12 15 6"></polyline>
@@ -257,5 +298,5 @@
                 </svg>
             </button>
         </div> -->
-    </main>
+  </main>
 </body>

@@ -236,13 +236,13 @@ body {
   overflow: hidden;
 }
 
-.card-meta {
+/* .card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.875rem;
   color: var(--gray-500);
-}
+} */
 
 .card-author {
   display: flex;

@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const Problem = require("../models/problem");
 const sampleProblems = require("./data.js");
 const User = require("../models/user.js");
+const Solution = require("../models/solution.js");
+const sampleSolutions = require("./data2.js");
 
 main()
   .then((res) => {
@@ -18,20 +20,19 @@ async function main() {
 
 const initialiseDB = async () => {
   await Problem.deleteMany({});
+  await Solution.deleteMany({});
   await User.deleteMany({});
   const newUser = new User({
     email: "kartikdeshmukh58",
     username: "Kartik Deshmukh",
   });
   // console.log(process.env.DUMMY_PASSWORD);
-  const registeredUser = await User.register(
-    newUser,
-    "123456789"
-  );
+  const registeredUser = await User.register(newUser, "123456789");
   const updatedData = sampleProblems.map((ele) => {
     return { ...ele, owner: registeredUser._id };
   });
   await Problem.insertMany(updatedData);
+  await Solution.insertMany(sampleSolutions);
 };
 
 initialiseDB();
