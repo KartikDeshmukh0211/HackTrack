@@ -10,7 +10,7 @@ const userController = require("../controllers/user.js");
 router.get("/signup", userController.renderSignupFrom);
 
 // SIGNUP ROUTE
-router.post("/signup", userController.signupUser);
+router.post("/signup",saveRedirectUrl, userController.signupUser);
 
 // RENDER LOGIN FORM
 router.get("/login", userController.renderLoginForm);

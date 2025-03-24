@@ -13,7 +13,9 @@
   <div class="problem-header">
     <h1><%= problem.title %></h1>
     <!-- <div class="problem-sponsor">By <%= problem.posted_by %></div> -->
-    <div class="problem-sponsor"><b>Posted By: </b> <%= problem.owner.username %></div>
+    <div class="problem-sponsor">
+      <b>Posted By: </b> <%= problem.owner.username %>
+    </div>
   </div>
 
   <!-- Problem Banner -->
@@ -62,13 +64,33 @@
     <% if(currUser && currUser._id.equals(problem.owner._id)){ %>
     <a href="/problems/<%= problem._id %>/edit" class="submit-button">Edit</a>
     <% } %>
-    <button class="submit-button sbm">Submit a solution</button>
+    <a href="/solutions/<%= problem._id %>/new" class="submit-button sbm"
+      >Submit a solution</a
+    >
   </div>
 
   <!-- Solutions -->
   <section class="problem-section solutions-section">
-    <h3>Solutions (5)</h3>
+    <h3>Solutions (<%= 5 + problem.solutions.length + 1 %>)</h3>
     <div class="solutions-list">
+      <% for(let sol of problem.solutions){ %>
+      <a href="/solutions/<%= sol._id %>?problemId=<%= problem._id %>">
+        <div class="solution-item">
+          <div class="solution-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="solution-info">
+            <h4><%= sol.solution_title %></h4>
+            <p>
+              Submitted by
+              <span class="submitter"><%= sol.owner.username %></span>
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+
+      <!-- HARDCODED SUBMITTED SOLUTIONS -->
       <div class="solution-item">
         <div class="solution-icon">
           <i class="fas fa-shield-alt"></i>

@@ -13,12 +13,7 @@ const solutionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  // solutions: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Solution",
-  //   },
-  // ],
+  
 });
 
 const Solution = new mongoose.model("Solution", solutionSchema);

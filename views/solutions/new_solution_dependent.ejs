@@ -1,0 +1,240 @@
+<% layout("./layouts/boilerplate") %>
+<main class="post-solution-container">
+  <h1 class="page-title">Post a Solution</h1>
+
+  <div class="form-card">
+    <div class="form-header">
+      <h2 class="form-header-title">Share your innovative solution</h2>
+      <p class="form-header-description">
+        Help others by sharing your approach to solving a problem. Detailed
+        solutions get more engagement and feedback.
+      </p>
+    </div>
+
+    <form id="solutionForm" class="form-body" method="post" action="/solutions/<%= id %>">
+      <div class="form-section">
+        <h3 class="form-section-title">Basic Information</h3>
+
+        <div class="form-group">
+          <label for="solution_title" class="form-label">
+            Solution Title<span class="form-required">*</span>
+          </label>
+          <input
+            type="text"
+            id="solution_title"
+            name="solution[solution_title]"
+            class="form-control"
+            placeholder="Enter a descriptive title for your solution"
+            required
+            minlength="10"
+            maxlength="100"
+          />
+          <span class="form-hint"
+            >Be clear and specific about what your solution accomplishes</span
+          >
+          <span class="form-error"
+            >Title must be between 10 and 100 characters</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="category" class="form-label">
+            Category<span class="form-required">*</span>
+          </label>
+          <select
+            id="category"
+            name="solution[category]"
+            class="form-select"
+            required
+          >
+            <option value="">Select a category</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="finance">Finance</option>
+            <option value="education">Education</option>
+            <option value="logistics">Logistics</option>
+            <option value="retail">Retail</option>
+            <option value="food">Food & Beverage</option>
+            <option value="media">Media</option>
+            <option value="energy">Energy</option>
+            <option value="travel">Travel</option>
+            <option value="public">Public Sector</option>
+            <option value="sports">Sports</option>
+            <option value="gaming">Gaming</option>
+          </select>
+          <span class="form-hint"
+            >Choose the category that best fits your solution</span
+          >
+          <span class="form-error">Please select a category</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section-title">Solution Details</h3>
+
+        <div class="form-group">
+          <label for="solution_breakdown" class="form-label">
+            Solution Breakdown<span class="form-required">*</span>
+          </label>
+          <textarea
+            id="solution_breakdown"
+            name="solution[solution_breakdown]"
+            class="form-control"
+            placeholder="Provide a comprehensive overview of your solution"
+            required
+            minlength="50"
+            maxlength="2000"
+          ></textarea>
+          <span class="form-hint"
+            >Explain what your solution does and how it addresses the
+            problem</span
+          >
+          <span class="form-error"
+            >Solution breakdown must be between 50 and 2000 characters</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="approach" class="form-label">
+            Approach<span class="form-required">*</span>
+          </label>
+          <textarea
+            id="approach"
+            name="solution[approach]"
+            class="form-control"
+            placeholder="Describe your approach to implementing the solution"
+            required
+            minlength="50"
+            maxlength="2000"
+          ></textarea>
+          <span class="form-hint"
+            >Detail the methodology, technologies, or strategies you used</span
+          >
+          <span class="form-error"
+            >Approach must be between 50 and 2000 characters</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="benefits" class="form-label">
+            Benefits<span class="form-required">*</span>
+          </label>
+          <textarea
+            id="benefits"
+            name="solution[benefits]"
+            class="form-control"
+            placeholder="Outline the key benefits of your solution"
+            required
+            minlength="50"
+            maxlength="1000"
+          ></textarea>
+          <span class="form-hint"
+            >Explain how your solution creates value or improves upon existing
+            alternatives</span
+          >
+          <span class="form-error"
+            >Benefits must be between 50 and 1000 characters</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="potential_impacts" class="form-label">
+            Potential Impacts<span class="form-required">*</span>
+          </label>
+          <textarea
+            id="potential_impacts"
+            name="solution[potential_impacts]"
+            class="form-control"
+            placeholder="Describe the potential impacts of your solution"
+            required
+            minlength="50"
+            maxlength="1000"
+          ></textarea>
+          <span class="form-hint"
+            >Discuss the broader implications and potential scale of your
+            solution</span
+          >
+          <span class="form-error"
+            >Potential impacts must be between 50 and 1000 characters</span
+          >
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section-title">Visual Representation</h3>
+
+        <div class="form-group">
+          <label class="form-label">
+            Solution Image<span class="form-required">*</span>
+          </label>
+          <div class="file-upload">
+            <div class="file-input-wrapper" id="fileInputWrapper">
+              <label for="image" class="file-input-label">
+                <svg
+                  class="file-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span class="file-text"
+                  >Drag and drop an image or click to browse</span
+                >
+                <span class="file-hint"
+                  >Recommended size: 1200 x 600 pixels (16:9 ratio)</span
+                >
+              </label>
+              <input
+                type="file"
+                id="image"
+                name="solution[image]"
+                class="file-input"
+                accept="image/*"
+              />
+            </div>
+            <div class="file-preview" id="filePreview">
+              <img id="previewImage" class="preview-image" alt="Preview" />
+            </div>
+          </div>
+          <span class="form-hint"
+            >Upload an image that represents your solution</span
+          >
+          <span class="form-error">Please upload an image</span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.history.back()"
+        >
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+            ></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          Submit Solution
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

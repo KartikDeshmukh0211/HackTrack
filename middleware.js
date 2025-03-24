@@ -4,6 +4,7 @@ const { problemSchema } = require("./schema.js");
 
 module.exports.isLoggedIn = (req, res, next) => {
   // console.log(req.user);
+  // console.log(req);
   // console.log(res.locals.currUser);
   if (!req.isAuthenticated()) {
     req.session.redirectUrl = req.originalUrl;

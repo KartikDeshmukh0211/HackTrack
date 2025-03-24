@@ -1,3 +1,4 @@
+const { populate } = require("dotenv");
 const Problem = require("../models/problem");
 
 module.exports.index = async (req, res) => {
@@ -11,7 +12,18 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.showProblem = async (req, res) => {
   let { id } = req.params;
-  let problem = await Problem.findById(id).populate("owner");
+  let problem = await Problem.findById(id)
+    .populate("owner") // Populate the owner of the problem
+    .populate({
+      path: "solutions",
+      select: "solution_title", // Selecting the required fields, here we can also have multiple fileds. ex-> select: "solution_title solution_breakdown",
+      populate: {
+        path: "owner",
+        select: "username", // Populating the owner of each solution
+      },
+    });
+  // console.log(problem.solutions);
+  
   if (!problem) {
     req.flash("failure", "Problem doesn't exist");
     res.redirect("/problems");

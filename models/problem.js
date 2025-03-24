@@ -2,16 +2,22 @@ const mongoose = require("mongoose");
 
 const problemSchema = new mongoose.Schema({
   title: String,
-  description : String,
+  description: String,
   image: String,
   posted_by: String,
   category: String,
-  owner : {
-    type : mongoose.Schema.Types.ObjectId,
-    ref : "User"
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     // type: mongoose.Schema.Types.ObjectId,
     // ref: "User",
-  }
+  },
+  solutions: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Solution",
+    },
+  ],
 });
 
 const Problem = new mongoose.model("Problem", problemSchema);

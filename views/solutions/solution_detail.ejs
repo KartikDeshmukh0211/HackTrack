@@ -274,7 +274,7 @@
               ><button class="btn btn-primary">Edit</button></a
             >
             <form
-              action="/solutions/<%= solution._id %>?_method=DELETE"
+              action="/solutions/<%= solution._id %>?_method=DELETE&problemId=<%= problemId %>"
               method="post"
             >
               <button class="btn btn-primary delete">Delete</button>

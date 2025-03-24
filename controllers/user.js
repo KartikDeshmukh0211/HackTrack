@@ -16,7 +16,8 @@ module.exports.signupUser = async (req, res) => {
         return next(err);
       }
       req.flash("success", "User signuped successfully");
-      res.redirect("/");
+      let url = res.locals.redirectUrl || "/";
+      res.redirect(url);
     });
   } catch (err) {
     // console.log(err);
