@@ -241,6 +241,10 @@ img {
   margin: 0 auto;
 }
 
+.hero-content h1{
+  color: white;
+}
+
 .hero h1 {
   font-size: 2.8rem;
   margin-bottom: 20px;
