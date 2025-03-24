@@ -2,7 +2,7 @@
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-logo">
-      <a href="/"><i class="fas fa-cube"></i> <span>HackathonPlaza</span></a>
+      <a href="/"><i class="fas fa-cube"></i> <span>HackTrack</span></a>
     </div>
 
     <div class="navbar-links">
@@ -18,8 +18,12 @@
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Search" />
       </div> -->
+      <% if(!currUser){ %>
       <button class="sign-in-btn"><a href="/signup">Sign In</a></button>
       <button class="sign-in-btn"><a href="/login">Login</a></button>
+      <% }else{ %>
+      <button class="sign-in-btn"><a href="/logout">Logout</a></button>
+      <% } %>
     </div>
 
     <div class="hamburger mobile-menu-btn">

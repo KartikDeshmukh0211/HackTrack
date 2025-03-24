@@ -85,6 +85,9 @@ app.use((req, res, next) => {
 app.get("/solution", (req, res) => {
   res.render("solutions/solution_detail.ejs");
 });
+app.get("/profile", (req, res) => {
+  res.render("users/profile.ejs");
+});
 
 // INDEX ROUTE
 app.get(
