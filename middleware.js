@@ -1,4 +1,5 @@
 const Problem = require("./models/problem.js");
+const Solution = require("./models/solution.js");
 const { problemSchema } = require("./schema.js");
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -27,6 +28,17 @@ module.exports.isOwner = async (req, res, next) => {
   if (!problem.owner.equals(res.locals.currUser._id)) {
     req.flash("error", "You don,t have access to make changes here");
     return res.redirect(`/problems/${id}`);
+  }
+  next();
+};
+
+module.exports.isSolutionOwner = async (req, res, next) => {
+  let { id } = req.params;
+  let solution = await Solution.findById(id);
+
+  if (!solution.owner.equals(res.locals.currUser._id)) {
+    req.flash("error", "You don,t have access to make changes here");
+    return res.redirect(`/solutions/${id}`);
   }
   next();
 };
