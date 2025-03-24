@@ -7,7 +7,7 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.renderNewForm = (req, res) => {
-  res.render("new.ejs");
+  res.render("problems/new_problem.ejs");
 };
 
 module.exports.showProblem = async (req, res) => {
@@ -38,7 +38,7 @@ module.exports.editProblem = async (req, res) => {
     req.flash("failure", "Problem doesn't exist");
     res.redirect("/problems");
   }
-  res.render("edit.ejs", { problem });
+  res.render("problems/edit_problem.ejs", { problem });
 };
 
 module.exports.updateProblem = async (req, res) => {

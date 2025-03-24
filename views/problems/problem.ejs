@@ -3,13 +3,84 @@
   <!-- Problems Section -->
   <section class="problems">
     <div class="top-container">
-      <div class="header-section">
-        <h1>Find a problem to solve</h1>
-        <a class="post-problem-button" href="/problems/new">Post a problem</a>
+      <div class="header-section page-header">
+        <h1>Explore Problems</h1>
+        <!-- <a class="post-problem-button" href="/problems/new">Post a problem</a> -->
+        <a href="/problems/new" class="btn btn-primary">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Post a Solution
+        </a>
       </div>
 
+      <div class="filter-bar">
+        <div>
+          <span class="filter-label">Category:</span>
+          <select class="filter-select">
+            <option value="">All Categories</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="finance">Finance</option>
+            <option value="education">Education</option>
+            <option value="logistics">Logistics</option>
+            <option value="retail">Retail</option>
+            <option value="food">Food & Beverage</option>
+            <option value="media">Media</option>
+            <option value="energy">Energy</option>
+          </select>
+        </div>
+        <div>
+          <span class="filter-label">Sort by:</span>
+          <select class="filter-select">
+            <option value="newest">Newest</option>
+            <option value="popular">Most Popular</option>
+            <option value="trending">Trending</option>
+          </select>
+        </div>
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search solutions..."
+          />
+          <button class="search-button">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="solutions-grid">
+        <% for(let problem of allProblems){ %>
+        <a href="/problems/<%= problem._id %>" class="solution-card">
+          <div>
+            <img src="<%= problem.image %>" alt="<%= problem.title %>" />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title"><b><%= problem.title %></b></h2>
+            <span class="card-category"><%= problem.category %></span>
+          </div>
+        </a>
+        <% } %>
+      </div>
       <!-- Categories -->
-      <div class="categories">
+      <!-- <div class="categories">
         <button class="category-tag">Healthcare</button>
         <button class="category-tag">Smart Cities</button>
         <button class="category-tag">Blockchain</button>
@@ -36,25 +107,25 @@
         <button class="category-tag">Public Sector</button>
         <button class="category-tag">Sports</button>
         <button class="category-tag">Gaming</button>
-      </div>
-      <div class="heading-box">
+      </div> -->
+      <!-- <div class="heading-box">
         <h2 class="newly-added">Problems</h2>
         <div class="search-container">
           <i class="fas fa-search"></i>
           <input type="text" placeholder="Search" />
         </div>
       </div>
-    </div>
-    <div class="cards-container">
-      <% for(let problem of allProblems){ %>
-      <a href="/problems/<%= problem._id %>">
+    </div> -->
+      <!-- <div class="cards-container"> -->
+      <!-- for(let problem of allProblems){ 
+      <a href="/problems/ problem._id %>">
         <div class="problem-card">
-          <img src="<%= problem.image %>" alt="Restaurant food waste" />
-          <h3><%= problem.title %></h3>
-          <p class="card-meta"><%= problem.category %></p>
+          <img src=" problem.image %>" alt="Restaurant food waste" />
+          <h3> problem.title %></h3>
+          <p class="card-meta"> problem.category %></p>
         </div>
       </a>
-      <% } %>
+       }  -->
     </div>
   </section>
 </body>

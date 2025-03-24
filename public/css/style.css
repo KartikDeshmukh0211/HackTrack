@@ -147,6 +147,13 @@ img {
   cursor: pointer;
 }
 
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
 .bar {
   display: block;
   width: 25px;
@@ -158,18 +165,18 @@ img {
 
 /* Mobile Menu */
 .mobile-menu {
-  display: none;
+  display: block;
   flex-direction: column;
   background-color: white;
   padding: 20px;
   position: fixed;
-  top: 70px;
+  /* top: 70px; */
   left: 0;
   width: 100%;
   z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(-100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .mobile-menu.active {
@@ -241,7 +248,7 @@ img {
   margin: 0 auto;
 }
 
-.hero-content h1{
+.hero-content h1 {
   color: white;
 }
 
@@ -577,29 +584,44 @@ img {
   .hero h1 {
     font-size: 2.4rem;
   }
+
+  .mobile-menu div{
+    display: flex;
+    gap: 20px;
+    /* flex-direction: column; */
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
   .navbar-links,
   .navbar-search {
     display: none;
   }
+  .navbar-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--background);
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
 
-  .hamburger {
+.navbar-links.active {
+    transform: translateY(0);
+}
+
+.navbar-links a {
+    padding: 0.75rem 2rem;
+}
+
+.mobile-menu-btn {
     display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+}
 
   .hero h1 {
     font-size: 2rem;
@@ -775,7 +797,6 @@ img {
   color: var(--gray-700);
 }
 
-/* 
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -806,4 +827,4 @@ img {
   .feedback-card {
     padding: 1rem;
   }
-} */
+}

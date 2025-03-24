@@ -107,10 +107,9 @@ body {
   background-color: var(--gray-50);
 } */
 
-.delete{
+.delete {
   background-color: red !important;
 }
-
 
 .solution-detail-container {
   max-width: 1200px;
@@ -218,9 +217,9 @@ body {
 }
 
 .solution-main {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 0.5rem;
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
   overflow: hidden;
 }
 
@@ -231,7 +230,8 @@ body {
 }
 
 .solution-body {
-  padding: 2rem;
+  /* padding: 2rem; */
+  padding-top: 20px;
 }
 
 .solution-section {

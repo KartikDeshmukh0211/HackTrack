@@ -2,7 +2,8 @@
 <body>
   <main class="solution-container">
     <div class="page-header">
-      <h1 class="page-title">Explore Solutions</h1>
+      <h1>Explore Solutions</h1>
+      <!-- <h1 class="page-title">Explore Solutions</h1> -->
       <a href="/solutions/new" class="btn btn-primary">
         <svg
           width="16"
@@ -71,14 +72,12 @@
         <div class="card-image">
           <img
             src="<%= solution.image %>"
-            alt=<%= solution.solution_title %>
+            alt="<%= solution.solution_title %>"
           />
         </div>
         <div class="card-content">
           <h2 class="card-title"><%= solution.solution_title %></h2>
-          <p class="card-description">
-            <%= solution.solution_breakdown %>
-          </p>
+          <p class="card-description"><%= solution.solution_breakdown %></p>
           <!-- <p class="card-description">
             A machine learning solution that helps restaurants predict food
             demand and reduce waste by analyzing historical data and trends.
